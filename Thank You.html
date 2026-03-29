@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Thank You — Your AI Mastery Guide is Ready!</title>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --indigo: #1B1060;
+    --violet: #2D1B8E;
+    --amber:  #F59E0B;
+    --amber2: #FBBF24;
+    --coral:  #F97316;
+    --green:  #10B981;
+    --lgrey:  #E5E7EB;
+    --mid:    #6B7280;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--indigo);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+/* Background orbs */
+body::before {
+content: ‘’;
+position: fixed; inset: 0; z-index: 0;
+background:
+radial-gradient(ellipse at 20% 20%, rgba(249,115,22,0.15) 0%, transparent 50%),
+radial-gradient(ellipse at 80% 80%, rgba(45,27,142,0.5) 0%, transparent 50%),
+radial-gradient(ellipse at 60% 10%, rgba(245,158,11,0.1) 0%, transparent 40%);
+}
+
+/* Confetti particles */
+.confetti-wrap {
+position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden;
+}
+.dot {
+position: absolute;
+width: 8px; height: 8px;
+border-radius: 2px;
+animation: fall linear infinite;
+opacity: 0;
+}
+@keyframes fall {
+0%   { transform: translateY(-20px) rotate(0deg);   opacity: 1; }
+100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* Card */
+.card {
+position: relative; z-index: 2;
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(245,158,11,0.2);
+border-radius: 24px;
+padding: 56px 52px;
+max-width: 580px; width: 100%;
+text-align: center;
+backdrop-filter: blur(20px);
+box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+animation: cardIn .7s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes cardIn {
+from { opacity: 0; transform: translateY(40px) scale(.95); }
+to   { opacity: 1; transform: none; }
+}
+
+/* Success ring */
+.ring {
+width: 96px; height: 96px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(–green), #34D399);
+display: flex; align-items: center; justify-content: center;
+font-size: 2.6rem;
+margin: 0 auto 28px;
+box-shadow: 0 0 0 12px rgba(16,185,129,0.1), 0 8px 40px rgba(16,185,129,0.4);
+animation: ringPop .6s .3s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes ringPop {
+from { transform: scale(0) rotate(-30deg); opacity: 0; }
+to   { transform: none; opacity: 1; }
+}
+
+.tag {
+display: inline-block;
+background: rgba(16,185,129,0.15);
+border: 1px solid rgba(16,185,129,0.3);
+color: #34D399;
+font-size: 0.72rem; font-weight: 700; letter-spacing: 3px;
+padding: 5px 14px; border-radius: 20px; margin-bottom: 16px;
+text-transform: uppercase;
+animation: fadeUp .5s .4s both;
+}
+
+h1 {
+font-family: ‘Fraunces’, serif;
+font-size: clamp(2rem, 5vw, 2.8rem);
+color: #fff; font-weight: 900;
+line-height: 1.1; margin-bottom: 14px;
+animation: fadeUp .5s .5s both;
+}
+h1 span { color: var(–amber); }
+
+.subtitle {
+font-size: 1rem; color: rgba(255,255,255,0.55);
+line-height: 1.7; margin-bottom: 36px;
+animation: fadeUp .5s .6s both;
+}
+
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(16px); }
+to   { opacity: 1; transform: none; }
+}
+
+/* Download button */
+.dl-btn {
+display: flex; align-items: center; justify-content: center; gap: 14px;
+background: linear-gradient(135deg, var(–amber), var(–coral));
+color: var(–indigo);
+font-weight: 800; font-size: 1.1rem;
+padding: 20px 36px;
+border-radius: 12px;
+text-decoration: none;
+box-shadow: 0 6px 30px rgba(245,158,11,0.5), 0 0 0 0 rgba(245,158,11,.4);
+transition: transform .2s, box-shadow .2s;
+animation: fadeUp .5s .7s both, glowPulse 3s 1.5s infinite;
+margin-bottom: 16px;
+}
+@keyframes glowPulse {
+0%,100% { box-shadow: 0 6px 30px rgba(245,158,11,0.5); }
+50%      { box-shadow: 0 6px 50px rgba(245,158,11,0.75); }
+}
+.dl-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 50px rgba(245,158,11,0.65); }
+.dl-icon {
+width: 44px; height: 44px; border-radius: 10px;
+background: rgba(27,16,96,0.2);
+display: flex; align-items: center; justify-content: center;
+font-size: 1.4rem; flex-shrink: 0;
+}
+.dl-text { text-align: left; }
+.dl-text strong { display: block; font-size: 1rem; }
+.dl-text span { font-size: 0.75rem; opacity: .7; font-weight: 500; }
+
+.dl-note {
+font-size: 0.78rem; color: rgba(255,255,255,0.3);
+margin-bottom: 36px;
+animation: fadeUp .5s .8s both;
+}
+
+/* Divider */
+.divider {
+border: none; border-top: 1px solid rgba(255,255,255,0.08);
+margin-bottom: 32px;
+animation: fadeUp .5s .9s both;
+}
+
+/* Next steps */
+.next-label {
+font-size: 0.7rem; font-weight: 700; letter-spacing: 4px;
+color: var(–amber); text-transform: uppercase;
+margin-bottom: 20px;
+animation: fadeUp .5s 1s both;
+}
+.steps {
+display: flex; flex-direction: column; gap: 12px;
+animation: fadeUp .5s 1.1s both;
+}
+.step {
+display: flex; align-items: center; gap: 14px;
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.06);
+border-radius: 10px; padding: 14px 18px;
+text-align: left;
+transition: border-color .2s, background .2s;
+}
+.step:hover { border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.05); }
+.step-num {
+width: 32px; height: 32px; border-radius: 50%;
+background: linear-gradient(135deg, var(–amber), var(–coral));
+display: flex; align-items: center; justify-content: center;
+font-size: 0.8rem; font-weight: 800; color: var(–indigo);
+flex-shrink: 0;
+}
+.step-text strong { display: block; font-size: 0.9rem; color: #fff; font-weight: 700; margin-bottom: 2px; }
+.step-text span { font-size: 0.8rem; color: rgba(255,255,255,0.45); line-height: 1.4; }
+
+/* Share */
+.share-section {
+margin-top: 32px;
+animation: fadeUp .5s 1.2s both;
+}
+.share-label {
+font-size: 0.78rem; color: rgba(255,255,255,0.35);
+margin-bottom: 14px;
+}
+.share-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.share-btn {
+display: inline-flex; align-items: center; gap: 7px;
+padding: 9px 18px; border-radius: 8px;
+font-size: 0.82rem; font-weight: 600;
+text-decoration: none; border: 1px solid rgba(255,255,255,0.1);
+color: rgba(255,255,255,0.7);
+transition: border-color .2s, color .2s, background .2s;
+}
+.share-btn:hover { border-color: var(–amber); color: var(–amber); background: rgba(245,158,11,0.06); }
+
+/* Back link */
+.back {
+position: relative; z-index: 2;
+margin-top: 28px;
+font-size: 0.82rem; color: rgba(255,255,255,0.25);
+text-decoration: none;
+transition: color .2s;
+animation: fadeUp .5s 1.3s both;
+}
+.back:hover { color: var(–amber); }
+
+/* Footer */
+.foot {
+position: relative; z-index: 2;
+margin-top: 40px;
+font-size: 0.75rem; color: rgba(255,255,255,0.18);
+text-align: center; line-height: 1.8;
+}
+
+@media(max-width: 600px) {
+.card { padding: 40px 28px; }
+.dl-btn { padding: 18px 24px; font-size: 1rem; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- Confetti -->
+
+<div class="confetti-wrap" id="confetti"></div>
+
+<!-- Card -->
+
+<div class="card">
+  <div class="ring">🎉</div>
+  <div class="tag">Purchase Confirmed</div>
+  <h1>You're All Set!<br/><span>Your Ebook is Ready.</span></h1>
+  <p class="subtitle">
+    Thank you for your purchase. Your copy of <strong style="color:#fff">AI Mastery — The Complete Guide</strong> is waiting below. Click to download it instantly to your device.
+  </p>
+
+  <!-- DOWNLOAD BUTTON — Update href to your actual PDF path -->
+
+  <a class="dl-btn" href="AI_Mastery_Complete_Guide.pdf" download="AI_Mastery_Complete_Guide_2026.pdf">
+    <div class="dl-icon">⬇</div>
+    <div class="dl-text">
+      <strong>Download Your Ebook Now</strong>
+      <span>PDF · 35+ pages · Instant download</span>
+    </div>
+  </a>
+  <p class="dl-note">📧 A download link has also been sent to your email. Save the PDF somewhere safe!</p>
+
+  <hr class="divider"/>
+
+  <p class="next-label">What to Do Next</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <strong>Save your PDF</strong>
+        <span>Download it to your phone, tablet, or laptop so you can access it anytime — even offline.</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <strong>Start with Chapter 2</strong>
+        <span>The CRAFT prompting framework is the single highest-impact thing in this guide. Read it first and try it today.</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <strong>Follow the 30-Day Plan</strong>
+        <span>The final chapter has a week-by-week action plan. Follow it and you'll see real results within a month.</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-text">
+        <strong>Come back and tell us how it went</strong>
+        <span>We love hearing success stories — every strategy in this book has been tested by real people.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Share -->
+
+  <div class="share-section">
+    <p class="share-label">Enjoying it? Share with a friend 👇</p>
+    <div class="share-btns">
+      <a class="share-btn" href="https://twitter.com/intent/tweet?text=Just+grabbed+the+AI+Mastery+ebook+%E2%80%94+seriously+packed+with+practical+strategies.+Recommended!+%F0%9F%93%98" target="_blank" rel="noopener">
+        𝕏 Share on X
+      </a>
+      <a class="share-btn" href="https://wa.me/?text=I+just+got+this+AI+Mastery+ebook+and+it's+really+good+%E2%80%94+practical+strategies+for+using+AI+to+earn+more+and+work+smarter.+Check+it+out!" target="_blank" rel="noopener">
+        💬 WhatsApp
+      </a>
+      <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=YOUR_SITE_URL_HERE" target="_blank" rel="noopener">
+        Facebook
+      </a>
+    </div>
+  </div>
+</div>
+
+<a class="back" href="index.html">← Back to homepage</a>
+
+<div class="foot">
+  © 2026 AI Mastery · All rights reserved<br/>
+  Questions? Contact us at hello@yourdomain.com
+</div>
+
+<script>
+  // Confetti burst on load
+  const colors = ['#F59E0B','#F97316','#10B981','#FBBF24','#6EE7B7','#FDE68A','#fff'];
+  const wrap = document.getElementById('confetti');
+
+  function makeDot() {
+    const d = document.createElement('div');
+    d.className = 'dot';
+    const size = Math.random() * 8 + 4;
+    d.style.cssText = `
+      left: ${Math.random()*100}%;
+      width: ${size}px;
+      height: ${size}px;
+      background: ${colors[Math.floor(Math.random()*colors.length)]};
+      animation-duration: ${Math.random()*3+2}s;
+      animation-delay: ${Math.random()*2}s;
+      border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+    `;
+    return d;
+  }
+
+  // Burst of 60 dots on load
+  for (let i = 0; i < 60; i++) wrap.appendChild(makeDot());
+
+  // After 6s keep a trickle of 10
+  setTimeout(() => {
+    wrap.innerHTML = '';
+    for (let i = 0; i < 10; i++) {
+      const d = makeDot();
+      d.style.animationIterationCount = 'infinite';
+      wrap.appendChild(d);
+    }
+  }, 6000);
+</script>
+
+</body>
+</html>
